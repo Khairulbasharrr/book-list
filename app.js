@@ -1,37 +1,27 @@
-/* 
-1. DOM selection
-2. Event Listener 
-3. Basic Validation
-4. Creating
-5. Append
-*/
-const title = document.querySelector("#title");
-const author = document.querySelector("#author");
-const year = document.querySelector("#year");
+
+const title = document.querySelector(".title");
+const author = document.querySelector(".author");
+const year = document.querySelector(".year");
 const btn = document.querySelector(".btn");
-const bookList = document.querySelector("#book-list");
-
-btn.addEventListener('click',function(e){
-   e.preventDefault();
-  if(title.value == '' && author.value == '' && year.value == ''){
-      alert('Please fullfil all input box');
-  } 
-  else{
-      const newRow = document.createElement("tr");
-      const newTitle = document.createElement("td");
-      newTitle.innerHTML = title.value;
-      newRow.appendChild(newTitle);
-      
-      const newAuthor = document.createElement("td");
-      newAuthor.innerHTML = author.value ;
-      newRow.appendChild (newAuthor);
-
-      const newYear = document.createElement("td");
-      newYear.innerHTML = year.value ;
-      newRow.appendChild(newYear);
-
-      bookList.appendChild(newRow);
-     
-
-  }
+const tableBody = document.querySelector("#tableBody");
+btn.addEventListener("click",function(){
+    if (title.value == "" || author.value == "" || year.value == ""){
+        alert("Please enter all input box");
+    }
+else{
+    let newRow =  document.createElement("tr");
+    let newTitle = document.createElement("td")
+    newTitle.innerHTML = title.value;
+    let newAuthor = document.createElement("td")
+    newAuthor.innerHTML = author.value;
+   let newYear = document.createElement("td")
+   newYear.innerHTML = year.value;
+    newRow.appendChild(newTitle);
+    newRow.appendChild(newAuthor);
+    newRow.appendChild(newYear);
+    tableBody.appendChild(newRow);
+}
+ 
 })
+   
+  
